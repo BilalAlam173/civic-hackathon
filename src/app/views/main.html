@@ -1,4 +1,3 @@
-
 <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2 md-sidenav-left">
     <md-toolbar md-theme="custom" class="md-hue-1 md-whiteframe-z2">
         <md-button layout="row" layout-align="center center" class="md-toolbar-tools md-warn" href="https://github.com/flatlogic/angular-material-dashboard">
@@ -29,6 +28,19 @@
                 <i class="material-icons">menu</i>
             </md-button>
         </section>
+        <section layout-align="center" ng-if="vm.userType==='citizen'">
+            <!-- <md-button class="toolbar-button" aria-label="Search">
+                    <i class="material-icons">search</i>
+                </md-button> -->
+            <md-button class="toolbar-button" aria-label="Alerts" ng-click="vm.createIssue()">
+                <i class="material-icons">add</i>
+                <md-tooltip>identify issue</md-tooltip>
+            </md-button>
+            <!-- <md-button class="toolbar-button" aria-label="Settings" ng-click="vm.toggleRightSidebar()">
+                    <i class="material-icons">menu</i>
+                </md-button> -->
+        </section>
+
         <section layout-align="end center">
             <!-- <md-button class="toolbar-button" aria-label="Search">
                 <i class="material-icons">search</i>
@@ -73,6 +85,10 @@
         <md-toolbar md-theme="grey" class="md-hue-1">
             <div class="md-toolbar-tools">
                 <h3>Alerts</h3>
+                <md-button hide-sm hide-md ui-sref="home.add-alert" ng-if="vm.userType==='authority'">
+                    <i class="material-icons md-36">add</i>
+                    <md-tooltip>add new alert</md-tooltip>
+                </md-button>
             </div>
         </md-toolbar>
         <div ng-include src="'app/views/partials/messages.html'" />

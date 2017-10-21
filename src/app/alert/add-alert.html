@@ -1,0 +1,27 @@
+<md-content class="md-padding" style="height:30em">
+    <div layout="row" layout-align="center" style="height:1.8em">
+    </div>
+    <div layout="row" layout-align="center">
+        <h2>Add Alert</h2>
+    </div>
+
+    <div layout="row" layout-align="center">
+
+        <md-input-container>
+            <label>Title</label>
+            <input ng-model="vm.alert.Title">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="center">
+        <md-input-container style="width:13em;">
+            <label>Description</label>
+            <textarea ng-model="vm.alert.Description" rows="4" md-maxlength="250"></textarea>
+        </md-input-container>
+    </div>
+
+    <div layout="row" layout-align="center">
+        <md-button class="md-raised md-accent" flex="14" ng-click="vm.create()">
+            Add
+        </md-button>
+    </div>
+</md-content>

@@ -67,6 +67,24 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies',
                 title: 'Profile'
             }
         })
+        .state('home.add-alert', {
+            url: '/add-alert',
+            templateUrl: 'app/alert/add-alert.html',
+            controller: 'AddAlertController',
+            controllerAs: 'vm',
+            data: {
+                title: 'Add Alert'
+            }
+        })
+        .state('home.add-issue', {
+            url: '/add-issue',
+            templateUrl: 'app/issue/add-issue.html',
+            controller: 'AddIssueController',
+            controllerAs: 'vm',
+            data: {
+                title: 'Add Issue'
+            }
+        })
         .state('home.table', {
             url: '/table',
             controller: 'TableController',
