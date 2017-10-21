@@ -3,21 +3,21 @@
     angular
         .module('app')
         .controller('LoginController', [
-            '$mdDialog', '$interval', 'citizenService','authorityService','journalistService','$location','$rootScope',
+            '$mdDialog', '$interval', 'citizenService', 'authorityService', 'journalistService', '$location', '$rootScope',
             LoginController
         ]);
 
-    function LoginController($mdDialog, $interval, citizenService,authorityService,journalistService,location,rootscope) {
+    function LoginController($mdDialog, $interval, citizenService, authorityService, journalistService, location, rootscope) {
         var vm = this;
         vm.list = list;
-        vm.login=login;
-        vm.type="";
-        vm.formCitizen=formCitizen;
-        vm.formJournalist=formJournalist;
-        vm.formAuthority=formAuthority;
-        vm.user={
-            email:'',
-            password:''
+        vm.login = login;
+        vm.type = "";
+        vm.formCitizen = formCitizen;
+        vm.formJournalist = formJournalist;
+        vm.formAuthority = formAuthority;
+        vm.user = {
+            email: '',
+            password: ''
         }
         vm.signupType;
 
@@ -26,47 +26,58 @@
                 console.log(response);
             });
         }
+
         function login() {
             console.log(vm.user);
-            if(vm.type==="citizen"){
-            citizenService.login(vm.user).then(function(response) {
-                if(response.data.length>0){
-                    rootscope.userType="citizen";
-                    location.path("/dashboard");
-                    
-                }
-            });
-        }else if(vm.type==="authority"){
-            
-            authorityService.login(vm.user).then(function(response){
-                if(response.data.length>0){
-                    rootscope.userType="authority";
-                    location.path("/dashboard");
-                }else{
-                    console.log(response);
-                }
-            });
+            if (vm.type === "citizen") {
+                citizenService.login(vm.user).then(function(response) {
+                    if (response.data.length > 0) {
+                        rootscope.userType = "citizen";
+                        localStorage.setItem('userType', rootscope.userType);
+                        rootscope.user = response.data[0];
+                        localStorage.setItem('user', JSON.stringify(response.data[0]));
+                        location.path("/dashboard");
 
-        }else if(vm.type==="journalist"){
-            console.log(vm.type)
-            journalistService.login(vm.user).then(function(response){
-                if(response.data.length>0){
-                    rootscope.userType="journalist";
-                    location.path("/dashboard");
-                }else{
-                    console.log(response);
-                }
-            });
+                    }
+                });
+            } else if (vm.type === "authority") {
+
+                authorityService.login(vm.user).then(function(response) {
+                    if (response.data.length > 0) {
+                        rootscope.userType = "authority";
+                        localStorage.setItem('userType', rootscope.userType);
+                        localStorage.setItem('user', JSON.stringify(response.data[0]));
+                        location.path("/dashboard");
+                    } else {
+                        console.log(response);
+                    }
+                });
+
+            } else if (vm.type === "journalist") {
+                console.log(vm.type)
+                journalistService.login(vm.user).then(function(response) {
+                    if (response.data.length > 0) {
+                        rootscope.userType = "journalist";
+                        localStorage.setItem('user', JSON.stringify(response.data[0]));
+                        localStorage.setItem('userType', rootscope.userType);
+                        location.path("/dashboard");
+                    } else {
+                        console.log(response);
+                    }
+                });
+            }
         }
-        }
+
         function formCitizen() {
             location.path("/signup-citizen");
         }
+
         function formAuthority() {
-                location.path("/signup-authority");
+            location.path("/signup-authority");
         }
+
         function formJournalist() {
-                location.path("/signup-journalist");
+            location.path("/signup-journalist");
         }
 
     }
