@@ -7,43 +7,43 @@
         <div layout="row">
             <md-input-container>
                 <label>Name</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.FullName">
             </md-input-container>
             <md-input-container>
                 <label>Email</label>
-                <input ng-model="vm.user.email" type="email">
+                <input ng-model="vm.user.Email">
             </md-input-container>
 
         </div>
         <div layout="row">
             <md-input-container>
                 <label>Password</label>
-                <input ng-model="vm.user.title" type="password">
+                <input ng-model="vm.user.Password" type="password">
             </md-input-container>
             <md-input-container>
                 <label>Confirm Password</label>
-                <input ng-model="vm.user.title" type="password">
+                <input  type="password">
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container>
                 <label>Designation</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.Designation">
             </md-input-container>
             <md-input-container>
                 <label>Phone</label>
-                <input ng-model="vm.user.email" type="number">
+                <input ng-model="vm.user.Phone" type="number">
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container flex>
                 <label>Firm</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.Firm">
             </md-input-container>
 
         </div>
         <div layout="row" layout-align="center">
-            <md-button class="md-raised md-accent" flex="50">
+            <md-button class="md-raised md-accent" ng-click="vm.signup()" flex="50">
                 Continue
             </md-button>
         </div>
