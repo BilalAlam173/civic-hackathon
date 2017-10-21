@@ -3,14 +3,15 @@
   angular
     .module('app')
     .controller('TableController', [
-      'tableService',
+      'tableService','$rootScope',
       TableController
     ]);
 
-  function TableController(tableService) {
+  function TableController(tableService,rootScope) {
     var vm = this;
 
     vm.tableData = [];
+    console.log(rootScope.userType);
 
     tableService
       .loadAllItems()

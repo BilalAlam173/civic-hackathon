@@ -3,11 +3,11 @@
     angular
         .module('app')
         .controller('LoginController', [
-            '$mdDialog', '$interval', 'citizenService','authorityService','journalistService','$location',
+            '$mdDialog', '$interval', 'citizenService','authorityService','journalistService','$location','$rootScope',
             LoginController
         ]);
 
-    function LoginController($mdDialog, $interval, citizenService,authorityService,journalistService,location) {
+    function LoginController($mdDialog, $interval, citizenService,authorityService,journalistService,location,rootscope) {
         var vm = this;
         vm.list = list;
         vm.login=login;
@@ -31,13 +31,16 @@
             if(vm.type==="citizen"){
             citizenService.login(vm.user).then(function(response) {
                 if(response.data.length>0){
+                    rootscope.userType="citizen";
                     location.path("/dashboard");
+                    
                 }
             });
         }else if(vm.type==="authority"){
             
             authorityService.login(vm.user).then(function(response){
                 if(response.data.length>0){
+                    rootscope.userType="authority";
                     location.path("/dashboard");
                 }else{
                     console.log(response);
@@ -48,6 +51,7 @@
             console.log(vm.type)
             journalistService.login(vm.user).then(function(response){
                 if(response.data.length>0){
+                    rootscope.userType="journalist";
                     location.path("/dashboard");
                 }else{
                     console.log(response);
