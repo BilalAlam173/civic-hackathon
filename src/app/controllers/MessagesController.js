@@ -1,22 +1,23 @@
-(function(){
+(function() {
 
-  angular
-    .module('app')
-    .controller('MessagesController', [
-      'messagesService',
-      MessagesController
-    ]);
+    angular
+        .module('app')
+        .controller('MessagesController', [
+            'alertService',
+            MessagesController
+        ]);
 
-  function MessagesController(messagesService) {
-    var vm = this;
+    function MessagesController(alertService) {
+        var vm = this;
 
-    vm.messages = [];
+        vm.messages = [];
 
-    messagesService
-      .loadAllItems()
-      .then(function(messages) {
-        vm.messages = [].concat(messages);
-      });
-  }
+        alertService
+            .list()
+            .then(function(response) {
+                vm.messages = response.data;
+                console.log(vm.messages);
+            });
+    }
 
 })();
