@@ -1,6 +1,7 @@
 <div layout="row" layout-align="center center" flex>
 
     <md-content class="md-padding">
+        <div layout="row" style="height:100px;"></div>
         <div layout="row" layout-align="center">
             <h2>Citizen Sign Up</h2>
         </div>
@@ -11,7 +12,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Email</label>
-                <input ng-model="vm.user.Email" type="email">
+                <input ng-model="vm.user.Email">
             </md-input-container>
 
         </div>
@@ -32,13 +33,13 @@
             </md-input-container>
             <md-input-container>
                 <label>Phone</label>
-                <input ng-model="vm.user.Phone" type="number">
+                <input ng-model="vm.user.Phone" >
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container>
                 <label>CNIC</label>
-                <input ng-model="vm.user.CNIC" type="number">
+                <input ng-model="vm.user.CNIC" >
             </md-input-container>
             <md-datepicker ng-style="{'margin-top' : '15px'}" ng-model="vm.user.Date" md-placeholder="Date of Birth"></md-datepicker>
         </div>
@@ -49,7 +50,7 @@
             </md-input-container>
             <md-input-container>
                 <label>Postal Code</label>
-                <input ng-model="vm.user.PostalCode" type="number">
+                <input ng-model="vm.user.PostalCode">
             </md-input-container>
         </div>
         <div layout="row">
@@ -59,11 +60,11 @@
             </md-input-container>
             <md-input-container>
                 <label>Town</label>
-                <input ng-model="vm.user.Town" type="email">
+                <input ng-model="vm.user.Town">
             </md-input-container>
         </div>
         <div layout="row" layout-align="center">
-            <md-button class="md-raised md-accent" flex="50" ng-click="vm.signup()">
+            <md-button class="md-raised md-accent" style="margin-bottom:20px" flex="50" ng-click="vm.signup()">
                 Continue
             </md-button>
         </div>
