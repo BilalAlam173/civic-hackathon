@@ -1,9 +1,9 @@
 <div layout="row" layout-align="center center" ng-style="{'background':'#B2DFDB'}" flex>
-    
-        <md-content class="md-padding">
-            <div layout="row" layout-align="center">
-                <h2>Authority Sign Up</h2>
-            </div>
+
+    <md-content class="md-padding">
+        <div layout="row" layout-align="center">
+            <h2>Authority Sign Up</h2>
+        </div>
         <div layout="row">
             <md-input-container>
                 <label>Full Name</label>
@@ -13,49 +13,49 @@
                 <label>Email</label>
                 <input ng-model="vm.user.email" type="email">
             </md-input-container>
-            
-            </div>
-            <div layout="row">
-                    <md-input-container flex>
-                            <label>Password</label>
-                            <input ng-model="vm.user.title">
-                        </md-input-container>
-            </div>
+
+        </div>
         <div layout="row">
-                <md-input-container>
-                    <label>Designation</label>
-                    <input ng-model="vm.user.title">
-                </md-input-container>
-                <md-input-container>
-                    <label>Phone</label>
-                    <input ng-model="vm.user.email" type="email">
-                </md-input-container>
-                </div>
+            <md-input-container flex>
+                <label>Password</label>
+                <input ng-model="vm.user.title">
+            </md-input-container>
+        </div>
         <div layout="row">
-                
-                <md-datepicker ng-model="birthday">DOB</md-datepicker>
-                </div>
+            <md-input-container>
+                <label>Designation</label>
+                <input ng-model="vm.user.title">
+            </md-input-container>
+            <md-input-container>
+                <label>Phone</label>
+                <input ng-model="vm.user.email" type="email">
+            </md-input-container>
+        </div>
         <div layout="row">
-                <md-input-container flex>
-                        <label>Address</label>
-                        <input ng-model="vm.user.title">
-                    </md-input-container>
-                
-                </div>
-            <div layout="row" layout-align="center">
+
+            <md-datepicker ng-model="birthday" md-placeholder="Date of Birth"></md-datepicker>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Address</label>
+                <input ng-model="vm.user.title">
+            </md-input-container>
+
+        </div>
+        <div layout="row" layout-align="center">
             <md-button class="md-raised md-accent" ng-click="vm.performProgress()" flex="90">
                 Continue
             </md-button>
         </div>
         <div layout="row" layout-align="center">
-                <md-button class="md-raised md-primary" ng-click="vm.performProgress()" flex="90">
-                    Signup As Journalist
-                </md-button>
-            </div>
-            <div layout="row" layout-align="center">
-                    <md-button class="md-raised md-primary" ng-click="vm.performProgress()" flex="90">
-                        Signup As Citizen
-                    </md-button>
-                </div>
-        </md-content>
+            <md-button class="md-raised md-primary" ui-sref="signup-journalist" ng-click="vm.performProgress()" flex="90">
+                Signup As Journalist
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-button class="md-raised md-primary" ui-sref="signup-citizen" ng-click="vm.performProgress()" flex="90">
+                Signup As Citizen
+            </md-button>
+        </div>
+    </md-content>
 </div>

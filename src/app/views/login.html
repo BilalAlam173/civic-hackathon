@@ -1,30 +1,30 @@
 <div layout="row" layout-align="center center" ng-style="{'background':'#B2DFDB'}" flex>
-        
-            <md-content class="md-padding">
-                <div layout="row" layout-align="center start">
-                    <h2>Log In</h2>
-                </div>
-            <div layout="row">
-                
-                <md-input-container>
-                    <label>Email</label>
-                    <input ng-model="vm.user.email" type="email">
-                </md-input-container>
-                <md-input-container>
-                        <label>Password</label>
-                        <input ng-model="vm.user.title">
-                    </md-input-container>
-                </div>
-                
-                <div layout="row" layout-align="center">
-                <md-button class="md-raised md-accent" ng-click="vm.performProgress()" flex="90">
-                    Login
-                </md-button>
-            </div>
-                <div layout="row" layout-align="center">
-                        <md-button class="md-raised md-primary" ng-click="vm.performProgress()" flex="90">
-                            Signup
-                        </md-button>
-                    </div>
-            </md-content>
-    </div>
+
+    <md-content class="md-padding">
+        <div layout="row" layout-align="center">
+            <h2>Log In</h2>
+        </div>
+        <div layout="row">
+
+            <md-input-container>
+                <label>Email</label>
+                <input ng-model="vm.user.email" type="email">
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="vm.user.title">
+            </md-input-container>
+        </div>
+
+        <div layout="row" layout-align="center">
+            <md-button class="md-raised md-accent" ng-click="vm.performProgress()" flex="90">
+                Login
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-button class="md-raised md-primary" ng-click="vm.performProgress()" ui-sref="signup-citizen" flex="90">
+                Signup
+            </md-button>
+        </div>
+    </md-content>
+</div>
