@@ -15,18 +15,13 @@
             },
             {
                 name: 'Issues',
-                icon: 'view_module',
+                icon: 'public',
                 sref: '.table'
             },
             {
                 name: 'Profile',
                 icon: 'person',
                 sref: '.profile'
-            },
-            {
-                name: 'Data Table',
-                icon: 'view_module',
-                sref: '.data-table'
             }
         ];
 

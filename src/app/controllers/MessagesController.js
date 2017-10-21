@@ -18,8 +18,8 @@
                 vm.messages = response.data;
                 console.log(vm.messages);
                 vm.messages.forEach(function(element, index) {
-                    uthorityService.readOne(vm.messages[index].Authority_ID).then(function(response) {
-                        vm.messages[index].author = response.data.FullName;
+                    authorityService.readOne(vm.messages[index].Authority_ID).then(function(response) {
+                        vm.messages[index].author = response.data[0].FullName;
                         console.log(response);
                     })
                 }, this);
