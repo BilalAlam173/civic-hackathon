@@ -3,18 +3,17 @@
     angular
         .module('app')
         .controller('MessagesController', [
-            'alertService', 'authorityService',
+            'alertService', 'authorityService','$rootScope',
             MessagesController
         ]);
 
-    function MessagesController(alertService, authorityService) {
+    function MessagesController(alertService, authorityService,rootscope) {
         var vm = this;
 
         vm.messages = [];
 
-        alertService
-            .list()
-            .then(function(response) {
+        function load(){
+            alertService.list().then(function(response) {
                 vm.messages = response.data;
                 console.log(vm.messages);
                 vm.messages.forEach(function(element, index) {
@@ -23,14 +22,9 @@
                         console.log(response);
                     })
                 }, this);
-                // for (var i = 1; i <= vm.messages.length; i++) {
-                //     console.log(vm.messages[i]);
-                // authorityService.readOne(vm.messages[i].Authority_ID).then(function(response) {
-                //     vm.messages[i].author = response.data.FullName;
-                //     console.log(response);
-                // })
-                // }
             });
+        }
+        load();
     }
 
 })();
