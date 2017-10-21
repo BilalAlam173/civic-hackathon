@@ -1,4 +1,4 @@
-<div layout="row" layout-align="center center" ng-style="{'background':'#B2DFDB'}" flex>
+<div layout="row" layout-align="center center" flex>
 
     <md-content class="md-padding">
         <div layout="row" layout-align="center">
@@ -6,7 +6,7 @@
         </div>
         <div layout="row">
             <md-input-container>
-                <label>Full Name</label>
+                <label>Name</label>
                 <input ng-model="vm.user.title">
             </md-input-container>
             <md-input-container>
@@ -16,8 +16,12 @@
 
         </div>
         <div layout="row">
-            <md-input-container flex>
+            <md-input-container>
                 <label>Password</label>
+                <input ng-model="vm.user.title" type="password">
+            </md-input-container>
+            <md-input-container>
+                <label>Confirm Password</label>
                 <input ng-model="vm.user.title" type="password">
             </md-input-container>
         </div>
@@ -39,18 +43,8 @@
 
         </div>
         <div layout="row" layout-align="center">
-            <md-button class="md-raised md-accent" ng-click="vm.performProgress()" flex="90">
+            <md-button class="md-raised md-accent" flex="50">
                 Continue
-            </md-button>
-        </div>
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised md-primary" ui-sref="signup-authority" ng-click="vm.performProgress()" flex="90">
-                Signup As Authority
-            </md-button>
-        </div>
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised md-primary" ui-sref="signup-citizen" ng-click="vm.performProgress()" flex="90">
-                Signup As Citizen
             </md-button>
         </div>
     </md-content>

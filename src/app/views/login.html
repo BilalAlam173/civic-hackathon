@@ -31,12 +31,23 @@
             </div>
     
             <div layout="row" layout-align="left">
-                <md-button class="md-raised md-accent md-small" ng-click="vm.login()">
+                <div layout="col">
+                <md-button class="md-raised md-accent" style="height:20px;margin-top:30px" ng-click="vm.login()">
                     Login
                 </md-button>
-                <md-button class="md-raised md-primary" ng-click="vm.performProgress()" ui-sref="signup-citizen">
-                    Signup
+            </div>
+            <div layout="col">
+                <md-button>
+                <md-select ng-model="vm.signupType" placeholder="signup">
+                    <md-option ng-click="vm.formCitizen()">citizen</md-option>
+                    <md-option ng-click="vm.formJournalist()">journalist</md-option>
+                    <md-option ng-click="vm.formAuthority()">authority</md-option>
+                </md-select>
                 </md-button>
+            </div>
+                <!-- <md-button class="md-raised md-primary" ng-click="vm.performProgress()" ui-sref="signup-citizen">
+                    Signup
+                </md-button> -->
             </div>
             <div layout="row" layout-align="center">
     
