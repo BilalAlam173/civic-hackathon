@@ -7,59 +7,59 @@
         <div layout="row">
             <md-input-container>
                 <label>Full Name</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.FullName">
             </md-input-container>
             <md-input-container>
                 <label>Email</label>
-                <input ng-model="vm.user.email" type="email">
+                <input ng-model="vm.user.Email" type="email">
             </md-input-container>
 
         </div>
         <div layout="row">
             <md-input-container>
                 <label>Password</label>
-                <input ng-model="vm.user.title" type="password">
+                <input ng-model="vm.user.Password" type="password">
             </md-input-container>
             <md-input-container>
                 <label>Confirm Password</label>
-                <input ng-model="vm.user.title" type="password">
+                <input  type="password">
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container>
                 <label>Profession</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.Profession">
             </md-input-container>
             <md-input-container>
                 <label>Phone</label>
-                <input ng-model="vm.user.email" type="number">
+                <input ng-model="vm.user.Phone" type="number">
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container>
                 <label>CNIC</label>
-                <input ng-model="vm.user.title" type="number">
+                <input ng-model="vm.user.CNIC" type="number">
             </md-input-container>
-            <md-datepicker ng-style="{'margin-top' : '15px'}" ng-model="birthday" md-placeholder="Date of Birth"></md-datepicker>
+            <md-datepicker ng-style="{'margin-top' : '15px'}" ng-model="vm.user.Date" md-placeholder="Date of Birth"></md-datepicker>
         </div>
         <div layout="row">
             <md-input-container flex>
                 <label>Address</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.Address">
             </md-input-container>
         </div>
         <div layout="row">
             <md-input-container>
                 <label>City</label>
-                <input ng-model="vm.user.title">
+                <input ng-model="vm.user.City">
             </md-input-container>
             <md-input-container>
                 <label>Town</label>
-                <input ng-model="vm.user.email" type="email">
+                <input ng-model="vm.user.Town" type="email">
             </md-input-container>
         </div>
         <div layout="row" layout-align="center">
-            <md-button class="md-raised md-accent" flex="50">
+            <md-button class="md-raised md-accent" flex="50" ng-click="vm.signup()">
                 Continue
             </md-button>
             <!-- <md-button class="md-raised md-primary" ui-sref="signup-journalist">

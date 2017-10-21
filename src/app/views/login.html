@@ -1,30 +1,56 @@
-<div layout="row" layout-align="center center" ng-style="{'background':'#B2DFDB'}" flex>
-
-    <md-content class="md-padding">
-        <div layout="row" layout-align="center">
-            <h2>Log In</h2>
-        </div>
-        <div layout="row">
-
-            <md-input-container>
-                <label>Email</label>
-                <input ng-model="vm.user.email" type="email">
-            </md-input-container>
-            <md-input-container>
-                <label>Password</label>
-                <input ng-model="vm.user.title">
-            </md-input-container>
-        </div>
-
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised md-accent" ng-click="vm.performProgress()" flex="90">
-                Login
-            </md-button>
-        </div>
-        <div layout="row" layout-align="center">
-            <md-button class="md-raised md-primary" ng-click="vm.performProgress()" ui-sref="signup-citizen" flex="90">
-                Signup
-            </md-button>
-        </div>
-    </md-content>
-</div>
+<div layout="row" layout-align="center center" ng-style="{'background':'white'}" flex>
+    
+        <md-content class="md-padding">
+            <div layout="row" layout-align="left">
+                <h2>Public Parliament</h2>
+            </div>
+            <div layout="row" layout-align="center" style="height:60px">
+            </div>
+            <div layout="row">
+    
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="vm.user.email" type="email">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container>
+                    <label>Password</label>
+                    <input ng-model="vm.user.password">
+                </md-input-container>
+            </div>
+            <div layout="row" style="margin-right:50px">
+                <md-radio-group ng-model="vm.type" layout="row">
+                    <md-radio-button value="citizen" class="md-primary">Citizen</md-radio-button>
+                    <md-radio-button value="journalist"> Journalist </md-radio-button>
+                    <md-radio-button value="authority">Authority</md-radio-button>
+    
+                </md-radio-group>
+            </div>
+            <div layout="row" layout-align="center" style="height:40px">
+            </div>
+    
+            <div layout="row" layout-align="left">
+                <div layout="col">
+                <md-button class="md-raised md-accent" style="height:20px;margin-top:30px" ng-click="vm.login()">
+                    Login
+                </md-button>
+            </div>
+            <div layout="col">
+                <md-button>
+                <md-select ng-model="vm.signupType" placeholder="signup">
+                    <md-option ng-click="vm.formCitizen()">citizen</md-option>
+                    <md-option ng-click="vm.formJournalist()">journalist</md-option>
+                    <md-option ng-click="vm.formAuthority()">authority</md-option>
+                </md-select>
+                </md-button>
+            </div>
+                <!-- <md-button class="md-raised md-primary" ng-click="vm.performProgress()" ui-sref="signup-citizen">
+                    Signup
+                </md-button> -->
+            </div>
+            <div layout="row" layout-align="center">
+    
+            </div>
+        </md-content>
+    </div>
