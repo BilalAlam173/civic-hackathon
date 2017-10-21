@@ -3,12 +3,13 @@
   angular
        .module('app')
        .controller('MainController', [
-          'navService','dataService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast',
+          'navService','dataService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast','$rootScope',
           MainController
        ]);
 
-  function MainController(navService,dataService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast) {
+  function MainController(navService,dataService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast,rootscope) {
     var vm = this;
+    vm.userType=rootscope.userType;
     dataService.test().then(function(response){
       vm.test=response.data;
     });
