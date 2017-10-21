@@ -29,6 +29,20 @@
             });
         }
 
+        service.create = function(user) {
+            var req = {
+                method: 'POST',
+                url: 'http://localhost:8090/citizen/create',
+                headers: {
+                 'Authorization': 'dmFsbGV5Zm9yZ2U6MTY3NDA=',
+                  'Content-Type': 'application/json'
+                },
+                data: user
+               }
+               
+            return $http(req);
+        }
+
         return service;
     }
 

@@ -12,10 +12,14 @@
         vm.list = list;
         vm.login=login;
         vm.type;
+        vm.formCitizen=formCitizen;
+        vm.formJournalist=formJournalist;
+        vm.formAuthority=formAuthority;
         vm.user={
             email:'',
             password:''
         }
+        vm.signupType;
 
         function list() {
             citizenService.auth().then(function(response) {
@@ -28,6 +32,15 @@
                     location.path("/dashboard");
                 }
             });
+        }
+        function formCitizen() {
+            location.path("/signup-citizen");
+        }
+        function formAuthority() {
+                location.path("/signup-authority");
+        }
+        function formJournalist() {
+                location.path("/signup-journalist");
         }
 
     }
