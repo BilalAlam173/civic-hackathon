@@ -22,7 +22,7 @@
         service.login = function(user) {
             return $http({
                 method: 'GET',
-                url: 'http://localhost:8090/authority/auth?email='+user.email+'&password='+user.password,
+                url: 'http://localhost:8090/authority/auth?email=' + user.email + '&password=' + user.password,
                 headers: {
                     'Authorization': 'dmFsbGV5Zm9yZ2U6MTY3NDA='
                 }
@@ -34,14 +34,25 @@
                 method: 'POST',
                 url: 'http://localhost:8090/authority/create',
                 headers: {
-                 'Authorization': 'dmFsbGV5Zm9yZ2U6MTY3NDA=',
-                  'Content-Type': 'application/json'
+                    'Authorization': 'dmFsbGV5Zm9yZ2U6MTY3NDA=',
+                    'Content-Type': 'application/json'
                 },
                 data: user
-               }
-               
+            }
+
             return $http(req);
         }
+
+        service.readOne = function(id) {
+            return $http({
+                method: 'GET',
+                url: 'http://localhost:8090/authority/readOne?id=' + id,
+                headers: {
+                    'Authorization': 'dmFsbGV5Zm9yZ2U6MTY3NDA='
+                }
+            });
+        }
+
 
         return service;
     }
