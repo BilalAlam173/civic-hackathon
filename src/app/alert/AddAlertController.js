@@ -12,7 +12,7 @@
         vm.alert={
             Title:"",
             Description:"",
-            Authority_ID:""
+            Authority_ID:JSON.parse(localStorage.getItem("user")).Id
         }
         function create(){
             

@@ -15,6 +15,11 @@
             <md-option>Severage</md-option>
             <md-option>Water</md-option>
             <md-option>Waste</md-option>
+            <md-option>electric</md-option>
+            <md-option>traffic</md-option>
+            <md-option>maintenance</md-option>
+            <md-option>Waste</md-option>
+            <md-option>others</md-option>
         </md-select>
     </div>
     <div layout="row" layout-align="center">
@@ -30,11 +35,13 @@
     </div>
     <!-- <input type="text" ng-map-autocomplete ng-model="vm.autocomplete" /> -->
     <div layout="row" layout-align="center">
-        <div map-lazy-load="https://maps.google.com/maps/api/js" style="width:40em">
-            <ng-map center="[40.74, -74.18]" zoom="14" on-center-changed="vm.centerChanged()"></ng-map>
-            <marker position="[40.74, -74.18]"></marker>
+            <div id="mapid"></div>
+        <!-- <div map-lazy-load="https://maps.google.com/maps/api/js" style="width:40em">
+            <ng-map center="[40.74, -74.18];" zoom="14" on-center-changed="vm.centerChanged()">
+                 <marker position="[40.74, -74.18]" on-click="vm.centerChanged(2,3)"></marker>
+                <marker position="[40.74, -74.18]" options="vm.markerOptions" />
             </ng-map>
-        </div>
+        </div> -->
     </div>
     <div layout="row" style="height:2em"></div>
     <div layout="row" layout-align="center">

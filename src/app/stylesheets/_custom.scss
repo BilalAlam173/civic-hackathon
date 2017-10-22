@@ -16,6 +16,12 @@ $font-size-large: 22px;
 body {
   color: $text-color;
 }
+#map{
+  width: 400px;
+  height: 230px;
+  z-index: 0;
+
+}
 
 .toolbar-button {
   min-width: 20px;

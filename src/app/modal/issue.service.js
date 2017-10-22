@@ -20,6 +20,7 @@
         }
 
         service.create = function(issue) {
+            console.log("create",issue);
             var req = {
                 method: 'POST',
                 url: 'http://localhost:8090/issue/create',

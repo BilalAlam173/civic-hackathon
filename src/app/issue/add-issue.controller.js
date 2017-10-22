@@ -2,41 +2,46 @@
     angular
         .module('app')
         .controller('AddIssueController', [
-            'issueService', '$rootScope', 'NgMap',
+            'issueService', '$rootScope', 'NgMap','$location',
             AddIssueController
         ]);
 
-    function AddIssueController(alertService, rootScope, ngMap) {
+    function AddIssueController(issueService, rootScope, ngMap,location) {
         var vm = this;
         vm.create = create;
-        vm.centerChanged = centerChanged;
         vm.lat = '';
         vm.longit = '';
         vm.issue = {
             Title: "",
             Description: "",
             Category: "",
-            Citizen_Id: ""
+            lat:'',
+            longit:'',
+            Citizen_Id: JSON.parse(localStorage.getItem("user")).Id
         }
-        vm.center = [40.74, -74.18];
 
-        ngMap.getMap().then(function(map) {
-            console.log(map.getCenter());
-            console.log('markers', map.markers);
-            console.log('shapes', map.shapes);
+        var map = L.map('mapid', {
+            center: [24.9294, 67.1284],
+            zoom: 14
         });
 
-        function centerChanged() {
-            ngMap.getMap().then(function(map) {
-                console.log(map);
-                vm.center = [map.center.lat, map.center.lng];
-            });
-        }
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var marker = L.marker([24.9294, 67.1284], {
+            draggable: true
+        }).addTo(map);
+
+        marker.on('dragend', function(e) {
+            vm.issue.lat=marker.getLatLng().lat;
+            vm.issue.longit=marker.getLatLng().lng;
+        });
 
         function create() {
 
             console.log(vm.issue);
-            alertService.create(vm.issue).then(function(response) {
+            issueService.create(vm.issue).then(function(response) {
+                location.path("/dashboard")
                 console.log(response);
             });
         }
