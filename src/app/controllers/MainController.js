@@ -9,9 +9,11 @@
 
     function MainController(navService, dataService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, rootscope, location) {
         var vm = this;
-        vm.userType = rootscope.userType;
+        // vm.userType = rootscope.userType;
         vm.userType = localStorage.getItem("userType");
-        console.log(vm.userType);
+        vm.userName = JSON.parse(localStorage.getItem("user")).FullName;
+        console.log(vm.userName);
+        // console.log(vm.userType);
         dataService.test().then(function(response) {
             vm.test = response.data;
         });

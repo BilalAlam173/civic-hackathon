@@ -1,17 +1,17 @@
 <!-- TODO: Replace table to table component when https://github.com/angular/material/issues/796 will closed -->
 <div class="table-responsive-vertical md-whiteframe-z1">
-    <md-button ng-click="vm.myList()" ng-if="vm.userType==='citizen'">my list</md-button>
-    <md-button ng-click="vm.allIssues()" ng-if="vm.userType==='citizen'">all issues</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.myList()" ng-if="vm.userType==='citizen'">My Issues</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.allIssues()" ng-if="vm.userType==='citizen'">All Issues</md-button>
     <h3>{{vm.status}}</h3>
-    <table id="table" class="table table-hover table-bordered">
+    <table id="table" class="table table-hover">
         <thead>
             <tr>
                 <!-- <th>#</th> -->
-                <th>Title</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Votes</th>
-                <th>Location</th>
+                <th style="text-align:center">Title</th>
+                <th style="text-align:center">Category</th>
+                <th style="text-align:center">Description</th>
+                <th style="text-align:center">Votes</th>
+                <th style="text-align:center">Location</th>
                 <th></th>
             </tr>
         </thead>
@@ -21,24 +21,25 @@
                 <td data-title="Category">{{data.Category}}</td>
                 <td data-title="Description">{{data.Description}}</td>
                 <td data-title="Votes">
-                    <md-progress-linear class="table-progress {{data.Priority}}" md-mode="determinate" value={{data.Priority}}>
-                    </md-progress-linear>
+                    </p>
+                    {{data.priority}}
+                    <p>
                 </td>
                 <td data-title="Location">
                     <div map-lazy-load="https://maps.google.com/maps/api/js">
-                        <ng-map center="{{data.location}}" zoom="10">
-                            <marker position="{{data.location}}" title="{{data.priority}}"></marker>
+                        <ng-map center="{{data.location}}" zoom="10" style="width:90%;height:10em;margin-left:5%;margin-top:2em;margin-right:5%;">
+                            <marker position="{{data.location}}" title="Hello"></marker>
                         </ng-map>
                     </div>
                 </td>
                 <td>
-                        <md-button class="md-raised md-warn" ng-if="vm.userType==='citizen'">
-                            Push
-                        </md-button>
-                        <md-button class="md-raised md-warn" ng-if="vm.userType==='journalist'">
-                            Cover
-                        </md-button>
-                    </td>
+                    <md-button class="md-raised md-warn" ng-if="vm.userType==='citizen'">
+                        Push
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-if="vm.userType==='journalist'">
+                        Cover
+                    </md-button>
+                </td>
             </tr>
         </tbody>
     </table>

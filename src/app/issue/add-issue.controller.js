@@ -2,11 +2,11 @@
     angular
         .module('app')
         .controller('AddIssueController', [
-            'issueService', '$rootScope', 'NgMap','$location',
+            'issueService', '$rootScope', 'NgMap', '$location',
             AddIssueController
         ]);
 
-    function AddIssueController(issueService, rootScope, ngMap,location) {
+    function AddIssueController(issueService, rootScope, ngMap, location) {
         var vm = this;
         vm.create = create;
         vm.lat = '';
@@ -14,9 +14,9 @@
         vm.issue = {
             Title: "",
             Description: "",
-            Category: "",
-            lat:'',
-            longit:'',
+            Category: "category",
+            lat: '',
+            longit: '',
             Citizen_Id: JSON.parse(localStorage.getItem("user")).Id
         }
 
@@ -33,15 +33,15 @@
         }).addTo(map);
 
         marker.on('dragend', function(e) {
-            vm.issue.lat=marker.getLatLng().lat;
-            vm.issue.longit=marker.getLatLng().lng;
+            vm.issue.lat = marker.getLatLng().lat;
+            vm.issue.longit = marker.getLatLng().lng;
         });
 
         function create() {
 
             console.log(vm.issue);
             issueService.create(vm.issue).then(function(response) {
-                location.path("/dashboard")
+                location.path("/table")
                 console.log(response);
             });
         }

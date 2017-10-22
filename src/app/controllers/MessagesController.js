@@ -3,18 +3,18 @@
     angular
         .module('app')
         .controller('MessagesController', [
-            'alertService', 'authorityService','$rootScope',
+            'alertService', 'authorityService', '$rootScope',
             MessagesController
         ]);
 
-    function MessagesController(alertService, authorityService,rootscope) {
+    function MessagesController(alertService, authorityService, rootscope) {
         var vm = this;
 
         vm.messages = [];
 
-        function load(){
+        function load() {
             alertService.list().then(function(response) {
-                vm.messages = response.data;
+                vm.messages = response.data.reverse();
                 console.log(vm.messages);
                 vm.messages.forEach(function(element, index) {
                     authorityService.readOne(vm.messages[index].Authority_ID).then(function(response) {
