@@ -1,22 +1,30 @@
-(function(){
+(function() {
 
-  angular
-    .module('app')
-    .controller('MessagesController', [
-      'messagesService',
-      MessagesController
-    ]);
+    angular
+        .module('app')
+        .controller('MessagesController', [
+            'alertService', 'authorityService', '$rootScope',
+            MessagesController
+        ]);
 
-  function MessagesController(messagesService) {
-    var vm = this;
+    function MessagesController(alertService, authorityService, rootscope) {
+        var vm = this;
 
-    vm.messages = [];
+        vm.messages = [];
 
-    messagesService
-      .loadAllItems()
-      .then(function(messages) {
-        vm.messages = [].concat(messages);
-      });
-  }
+        function load() {
+            alertService.list().then(function(response) {
+                vm.messages = response.data.reverse();
+                console.log(vm.messages);
+                vm.messages.forEach(function(element, index) {
+                    authorityService.readOne(vm.messages[index].Authority_ID).then(function(response) {
+                        vm.messages[index].author = response.data[0].FullName;
+                        console.log(response);
+                    })
+                }, this);
+            });
+        }
+        load();
+    }
 
 })();

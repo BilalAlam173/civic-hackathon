@@ -1,0 +1,48 @@
+<div layout="row" layout-align="center center" flex>
+
+    <md-content class="md-padding">
+        <div layout="row" layout-align="center">
+            <img ng-src="assets/images/vocalize2.gif">
+        </div>
+        <div layout="row" layout-align="center">
+
+            <md-input-container>
+                <label>Email</label>
+                <input ng-model="vm.user.email">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="vm.user.password" type="password">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-radio-group ng-model="vm.type" layout="row">
+                <md-radio-button value="citizen" class="md-primary">Citizen</md-radio-button>
+                <md-radio-button value="journalist"> Journalist </md-radio-button>
+                <md-radio-button value="authority">Authority</md-radio-button>
+
+            </md-radio-group>
+        </div>
+        <!-- <div layout="row" layout-align="center" style="height:40px">
+        </div> -->
+
+        <div layout="row" layout-align="center">
+            <div layout="col">
+                <md-button class="md-raised md-accent" style="height:20px;margin-top:25px" ng-click="vm.login()">
+                    Login
+                </md-button>
+            </div>
+            <div layout="col">
+                <md-button>
+                    <md-select ng-model="vm.signupType" placeholder="Signup" style="height:20px;margin-top:25px">
+                        <md-option ng-click="vm.formCitizen()">Citizen</md-option>
+                        <md-option ng-click="vm.formJournalist()">Journalist</md-option>
+                        <md-option ng-click="vm.formAuthority()">Authority</md-option>
+                    </md-select>
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+</div>
