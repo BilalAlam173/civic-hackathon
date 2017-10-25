@@ -1,41 +1,35 @@
-(function(){
-  'use strict';
+(function() {
+    'use strict';
 
-  angular.module('app')
-          .service('navService', [
-          '$q',
-          navService
-  ]);
+    angular.module('app')
+        .service('navService', [
+            '$q',
+            navService
+        ]);
 
-  function navService($q){
-    var menuItems = [
-      {
-        name: 'Dashboard',
-        icon: 'dashboard',
-        sref: '.dashboard'
-      },
-      {
-        name: 'Profile',
-        icon: 'person',
-        sref: '.profile'
-      },
-      {
-        name: 'Table',
-        icon: 'view_module',
-        sref: '.table'
-      },
-      {
-        name: 'Data Table',
-        icon: 'view_module',
-        sref: '.data-table'
-      }
-    ];
+    function navService($q) {
+        var menuItems = [{
+                name: 'Dashboard',
+                icon: 'dashboard',
+                sref: '.dashboard'
+            },
+            {
+                name: 'Issues',
+                icon: 'public',
+                sref: '.table'
+            },
+            {
+                name: 'Profile',
+                icon: 'person',
+                sref: '.profile'
+            }
+        ];
 
-    return {
-      loadAllItems : function() {
-        return $q.when(menuItems);
-      }
-    };
-  }
+        return {
+            loadAllItems: function() {
+                return $q.when(menuItems);
+            }
+        };
+    }
 
 })();

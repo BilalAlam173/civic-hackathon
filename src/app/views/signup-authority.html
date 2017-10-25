@@ -1,0 +1,51 @@
+<div layout="row" layout-align="center center" flex>
+
+    <md-content class="md-padding">
+        <div layout="row" layout-align="center">
+            <h2>Authority Sign Up</h2>
+        </div>
+        <div layout="row">
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="vm.user.FullName">
+            </md-input-container>
+            <md-input-container>
+                <label>Email</label>
+                <input ng-model="vm.user.Email">
+            </md-input-container>
+
+        </div>
+        <div layout="row">
+            <md-input-container>
+                <label>Password</label>
+                <input ng-model="vm.user.Password" type="password">
+            </md-input-container>
+            <md-input-container>
+                <label>Confirm Password</label>
+                <input type="password">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container>
+                <label>Designation</label>
+                <input ng-model="vm.user.Deisgnation">
+            </md-input-container>
+            <md-input-container>
+                <label>Phone</label>
+                <input ng-model="vm.user.Phone">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-input-container>
+                <label>Address</label>
+                <input ng-model="vm.user.Address">
+            </md-input-container>
+            <md-datepicker ng-style="{'margin-top' : '15px'}" ng-model="vm.user.Date" md-placeholder="Date of Birth"></md-datepicker>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-button class="md-raised md-accent" style="margin-bottom:20px" ng-click="vm.signup()" flex="50">
+                Continue
+            </md-button>
+        </div>
+    </md-content>
+</div>

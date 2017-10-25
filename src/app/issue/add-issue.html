@@ -1,0 +1,49 @@
+<md-content class="md-padding">
+    <div layout="row" layout-align="center" style="height:1.3em">
+    </div>
+    <div layout="row" layout-align="center">
+        <h2>Report Issue</h2>
+    </div>
+
+    <div layout="row" layout-align="center">
+
+        <md-input-container>
+            <label>Title</label>
+            <input ng-model="vm.issue.Title">
+        </md-input-container>
+        <md-select ng-model="vm.issue.Category" placeholder="{{vm.issue.Category}}" layout-align="center start">
+            <md-option>Severage</md-option>
+            <md-option>Water</md-option>
+            <md-option>Waste</md-option>
+            <md-option>Electric</md-option>
+            <md-option>Traffic</md-option>
+            <md-option>Maintenance</md-option>
+            <md-option>Others</md-option>
+        </md-select>
+    </div>
+    <div layout="row" layout-align="center">
+        <md-input-container style="width:19em">
+            <label>Description</label>
+            <textarea ng-model="vm.issue.Description" rows="4" md-maxlength="250"></textarea>
+        </md-input-container>
+    </div>
+    <!-- <input type="text" ng-map-autocomplete ng-model="vm.autocomplete" /> -->
+    <div layout="row" layout-align="center">
+        <h4>Select Location</h4>
+    </div>
+    <div layout="row" layout-align="center">
+        <div id="mapid" style="width:50em;height:25em;"></div>
+        <!-- <div map-lazy-load="https://maps.google.com/maps/api/js" style="width:40em">
+            <ng-map center="[40.74, -74.18];" zoom="14" on-center-changed="vm.centerChanged()">
+                 <marker position="[40.74, -74.18]" on-click="vm.centerChanged(2,3)"></marker>
+                <marker position="[40.74, -74.18]" options="vm.markerOptions" />
+            </ng-map>
+        </div> -->
+    </div>
+    <div layout="row" style="height:2em"></div>
+    <div layout="row" layout-align="center">
+        <md-button class="md-raised md-accent" flex="20" ng-click="vm.create()">
+            Add
+        </md-button>
+    </div>
+</md-content>
